@@ -1,6 +1,6 @@
 var module = angular.module('scrum.teamController', []);
 
-module.controller('TeamController', function ($scope, StoriesService) {
+module.controller('TeamController',['$scope', 'StoriesService' ,function ($scope, StoriesService) {
     StoriesService.getStoriesAssignedToTeams().then(function (response) {
         $scope.teamsAndStoriesOverview = filterStoriesBasedOnAStatus(response.teams);
     });
@@ -17,4 +17,4 @@ module.controller('TeamController', function ($scope, StoriesService) {
             return team;
         });
     }
-});
+}]);
