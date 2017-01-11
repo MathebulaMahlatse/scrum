@@ -1,0 +1,94 @@
+{
+  "teams": [
+    {
+      "teamName": "Team 1",
+      "stories": [
+        {
+          "name": "name of the story 1",
+          "description": "Description of the story 1",
+          "estimation": "estimation of the story",
+          "owner": "owner of the story",
+          "status": "backlog"
+        },
+        {
+          "name": "name of the story 1",
+          "description": "Description of the story 1",
+          "estimation": "estimation of the story",
+          "owner": "owner of the story",
+          "status": "todo"
+        },
+        {
+          "name": "name of the story 1",
+          "description": "Description of the story 1",
+          "estimation": "estimation of the story",
+          "owner": "owner of the story",
+          "status": "todo"
+        },
+        {
+          "name": "name of the story 1",
+          "description": "Description of the story 1",
+          "estimation": "estimation of the story",
+          "owner": "owner of the story",
+          "status": "done"
+        },
+        {
+          "name": "name of the story 1",
+          "description": "Description of the story 1",
+          "estimation": "estimation of the story",
+          "owner": "owner of the story",
+          "status": "done"
+        }
+      ]
+    },
+    {
+      "teamName": "Team 2",
+      "stories": [
+        {
+          "name": "name of the story 2",
+          "description": "Description of the story 1",
+          "estimation": "estimation of the story",
+          "owner": "owner of the story",
+          "status": "backlog"
+        },
+        {
+          "name": "name of the story 2",
+          "description": "Description of the story 1",
+          "estimation": "estimation of the story",
+          "owner": "owner of the story",
+          "status": "done"
+        },
+        {
+          "name": "name of the story 2",
+          "description": "Description of the story 1",
+          "estimation": "estimation of the story",
+          "owner": "owner of the story",
+          "status": "done"
+        }
+      ]
+    },
+    {
+      "teamName": "Team 3",
+      "stories": [
+        {
+          "name": "name of the story 2",
+          "description": "Description of the story 1",
+          "estimation": "estimation of the story",
+          "owner": "owner of the story",
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "teamName": "Team 4",
+      "stories": [
+        {
+          "name": "name of the story 2",
+          "description": "Description of the story 1",
+          "estimation": "estimation of the story",
+          "owner": "owner of the story",
+          "status": "in progress"
+        }
+      ]
+    }
+  ]
+}
