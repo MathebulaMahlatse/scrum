@@ -15,13 +15,15 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+      'scrum.teamController',
+      'scrum.storiesService'
   ])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/scrumTeams.html',
+        controller: 'TeamController'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
