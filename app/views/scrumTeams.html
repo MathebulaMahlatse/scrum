@@ -1,6 +1,6 @@
 <div ng-repeat="team in teamsAndStoriesOverview">
 
-  <div class="panel panel-info">
+  <div class="panel panel-info" ng-click="selectTeam(team)">
     <div class="panel-heading">
       <h3 class="panel-title">{{team.teamName}}</h3>
     </div>
