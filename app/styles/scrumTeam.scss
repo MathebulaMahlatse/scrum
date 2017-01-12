@@ -1,0 +1,30 @@
+.teams {
+  .panel {
+    .panel-body {
+      .label.right {
+        float: right;
+        line-height: inherit;
+      }
+
+      .list-group {
+        .list-group-item {
+          border: 1px solid #bce8f1;
+          border-right: 0;
+          border-left: 0;
+          padding: 10px 0;
+        }
+      }
+    }
+  }
+
+  .page-header {
+    button {
+      float: right;
+    }
+  }
+
+  .panel-info:hover{
+    cursor: pointer;
+    box-shadow: 0 0 1em #5bc0de;
+  }
+}
