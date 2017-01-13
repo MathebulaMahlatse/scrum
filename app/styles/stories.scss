@@ -1,0 +1,26 @@
+.stories {
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td, th {
+    border: 1px solid #bce8f1;
+    text-align: left;
+    padding: 8px;
+  }
+
+  .data:hover {
+    cursor: pointer;
+    box-shadow: 0 0 1em #5bc0de;
+  }
+
+  .panel {
+    .panel-heading {
+      button {
+        padding: 0;
+      }
+    }
+  }
+}

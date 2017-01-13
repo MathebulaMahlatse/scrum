@@ -1,49 +1,187 @@
-<div class="alert alert-info" role="alert">
-    <h3>Stories</h3>
-</div>
-
-<button type="button" class="btn btn-info">
-    <span class="glyphicon glyphicon-plus"></span> Add
-</button>
-<div>
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <h3 class="panel-title">Backlog</h3>
-        </div>
-
-        <div class="panel-body" ng-repeat="backlog in backlogTasks">
-            {{backlog}}
-        </div>
+<div class="stories">
+    <div class="page-header">
+        <h1> {{teamName}} - Stories
+        </h1>
     </div>
 
+    <div>
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Backlog <button type="button" class="btn btn-info">
+                    <span class="glyphicon glyphicon-plus"></span> add
+                </button>
+                </h3>
 
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <h3 class="panel-title">Todo</h3>
+            </div>
+
+            <table ng-show="backlogTasks.length > 0">
+                <tr>
+                    <th>
+                        <span class="label label-info">Description</span>
+
+                    </th>
+                    <th>
+                        <span class="label label-info">Estimation</span>
+                    </th>
+                    <th>
+                        <span class="label label-info">Owner</span>
+                    </th>
+                    <th>
+                        <span class="label label-info">Status</span>
+                    </th>
+                </tr>
+                <tr class="data" ng-repeat="backlog in backlogTasks">
+                    <td>
+                        {{backlog.description}}
+                    </td>
+                    <td>
+                        {{backlog.estimation}}
+                    </td>
+                    <td>
+                        {{backlog.owner}}
+                    </td>
+                    <td>
+                        {{backlog.status}}
+                    </td>
+                </tr>
+            </table>
+
+            <div class="panel-body" ng-show="backlogTasks.length == 0">
+                <a>There are no tasks</a>
+            </div>
         </div>
 
-        <div class="panel-body" ng-repeat="todo in todoTasks ">
-            {{todo}}
-        </div>
-    </div>
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Todo <button type="button" class="btn btn-info">
+                    <span class="glyphicon glyphicon-plus"></span> add
+                </button>
+                </h3>
+            </div>
 
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <h3 class="panel-title">In progress</h3>
+            <table ng-show="todoTasks.length > 0">
+                <tr>
+                    <th>
+                        <span class="label label-info">Description</span>
+
+                    </th>
+                    <th>
+                        <span class="label label-info">Estimation</span>
+                    </th>
+                    <th>
+                        <span class="label label-info">Owner</span>
+                    </th>
+                    <th>
+                        <span class="label label-info">Status</span>
+                    </th>
+                </tr>
+                <tr class="data" ng-repeat="todo in todoTasks">
+                    <td>
+                        {{todo.description}}
+                    </td>
+                    <td>
+                        {{todo.estimation}}
+                    </td>
+                    <td>
+                        {{todo.owner}}
+                    </td>
+                    <td>
+                        {{todo.status}}
+                    </td>
+                </tr>
+            </table>
+
+            <div class="panel-body" ng-show="todoTasks.length == 0">
+                <a>There are no tasks</a>
+            </div>
         </div>
 
-        <div class="panel-body" ng-repeat="inProgress in inProgressTasks ">
-            {{inProgress}}
-        </div>
-    </div>
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">In progress <button type="button" class="btn btn-info">
+                    <span class="glyphicon glyphicon-plus"></span> add
+                </button></h3>
+            </div>
 
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <h3 class="panel-title">Done</h3>
+            <table ng-show="inProgressTasks.length > 0">
+                <tr>
+                    <th>
+                        <span class="label label-info">Description</span>
+
+                    </th>
+                    <th>
+                        <span class="label label-info">Estimation</span>
+                    </th>
+                    <th>
+                        <span class="label label-info">Owner</span>
+                    </th>
+                    <th>
+                        <span class="label label-info">Status</span>
+                    </th>
+                </tr>
+                <tr class="data" ng-repeat="inProgress in inProgressTasks">
+                    <td>
+                        {{inProgress.description}}
+                    </td>
+                    <td>
+                        {{inProgress.estimation}}
+                    </td>
+                    <td>
+                        {{inProgress.owner}}
+                    </td>
+                    <td>
+                        {{inProgress.status}}
+                    </td>
+                </tr>
+            </table>
+
+            <div class="panel-body" ng-show="inProgressTasks.length == 0">
+                <a>There are no tasks</a>
+            </div>
         </div>
 
-        <div class="panel-body" ng-repeat="done in completedTasks ">
-            {{done}}
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Done <button type="button" class="btn btn-info">
+                    <span class="glyphicon glyphicon-plus"></span> add
+                </button></h3>
+            </div>
+
+            <table ng-show="completedTasks.length > 0">
+                <tr>
+                    <th>
+                        <span class="label label-info">Description</span>
+
+                    </th>
+                    <th>
+                        <span class="label label-info">Estimation</span>
+                    </th>
+                    <th>
+                        <span class="label label-info">Owner</span>
+                    </th>
+                    <th>
+                        <span class="label label-info">Status</span>
+                    </th>
+                </tr>
+                <tr class="data" ng-repeat="done in completedTasks">
+                    <td>
+                        {{done.description}}
+                    </td>
+                    <td>
+                        {{done.estimation}}
+                    </td>
+                    <td>
+                        {{done.owner}}
+                    </td>
+                    <td>
+                        {{done.status}}
+                    </td>
+                </tr>
+            </table>
+
+            <div class="panel-body" ng-show="completedTasks.length == 0">
+                <a>There are no tasks</a>
+            </div>
         </div>
     </div>
 </div>
