@@ -1,6 +1,6 @@
-var module = angular.module('scrum.teamController', []);
+var module = angular.module('scrum.teamController', ['angularModalService']);
 
-module.controller('TeamController',['$scope', 'StoriesService', '$location' ,function ($scope, StoriesService,$location) {
+module.controller('TeamController',['$scope', 'StoriesService', '$location', 'ModalService' ,function ($scope, StoriesService, $location, ModalService) {
     StoriesService.getStoriesAssignedToTeams().then(function (response) {
         $scope.teamsAndStoriesOverview = filterStoriesBasedOnAStatus(response.teams);
     });
@@ -10,6 +10,19 @@ module.controller('TeamController',['$scope', 'StoriesService', '$location' ,fun
         $location.path('/stories');
     };
 
+    $scope.addTeam = function () {
+        ModalService.showModal({
+            templateUrl: "views/teamModal.html",
+            controller: "TeamModalController",
+            inputs: {
+                title: "Adding a team"
+            }
+        }).then(function(modal) {
+            modal.element.modal();
+            modal.close.then(function(result) {
+            });
+        });
+    };
 
     function filterStoriesBasedOnAStatus(teams) {
         return _.map(teams, function (team) {
