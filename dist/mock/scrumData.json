@@ -1,9 +1,11 @@
 {
   "teams": [
     {
+      "teamId": 1,
       "teamName": "Team 1",
       "stories": [
         {
+          "storyId": 1,
           "name": "name of the story 1",
           "description": "Description of the story 1",
           "estimation": "estimation of the story",
@@ -11,6 +13,7 @@
           "status": "backlog"
         },
         {
+          "storyId": 2,
           "name": "name of the story 1",
           "description": "Description of the story 1",
           "estimation": "estimation of the story",
@@ -18,6 +21,7 @@
           "status": "todo"
         },
         {
+          "storyId": 3,
           "name": "name of the story 1",
           "description": "Description of the story 1",
           "estimation": "estimation of the story",
@@ -25,6 +29,7 @@
           "status": "todo"
         },
         {
+          "storyId": 4,
           "name": "name of the story 1",
           "description": "Description of the story 1",
           "estimation": "estimation of the story",
@@ -32,6 +37,7 @@
           "status": "done"
         },
         {
+          "storyId": 5,
           "name": "name of the story 1",
           "description": "Description of the story 1",
           "estimation": "estimation of the story",
@@ -41,9 +47,11 @@
       ]
     },
     {
+      "teamId": 2,
       "teamName": "Team 2",
       "stories": [
         {
+          "storyId": 1,
           "name": "name of the story 2",
           "description": "Description of the story 1",
           "estimation": "estimation of the story",
@@ -51,6 +59,7 @@
           "status": "backlog"
         },
         {
+          "storyId": 2,
           "name": "name of the story 2",
           "description": "Description of the story 1",
           "estimation": "estimation of the story",
@@ -58,6 +67,7 @@
           "status": "done"
         },
         {
+          "storyId": 3,
           "name": "name of the story 2",
           "description": "Description of the story 1",
           "estimation": "estimation of the story",
@@ -67,9 +77,11 @@
       ]
     },
     {
+      "teamId": 3,
       "teamName": "Team 3",
       "stories": [
         {
+          "storyId": 1,
           "name": "name of the story 2",
           "description": "Description of the story 1",
           "estimation": "estimation of the story",
@@ -79,9 +91,11 @@
       ]
     },
     {
+      "teamId": 4,
       "teamName": "Team 4",
       "stories": [
         {
+          "storyId": 1,
           "name": "name of the story 2",
           "description": "Description of the story 1",
           "estimation": "estimation of the story",
