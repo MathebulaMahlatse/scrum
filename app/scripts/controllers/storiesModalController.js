@@ -2,12 +2,12 @@ var app = angular.module('scrum.storiesModal', []);
 
 app.controller('StoriesModalController', [
     '$scope', '$element', 'title', 'close',
-    function($scope, $element, title, close) {
+    function($scope, $element, title, story, close) {
 
-        $scope.description = null;
-        $scope.estimation = null;
-        $scope.owner = null;
-        $scope.status = null;
+        $scope.description = story && story.description;
+        $scope.estimation = story && story.estimation;
+        $scope.owner = story && story.owner;
+        $scope.status = story && story.status;
 
         $scope.title = title;
 
