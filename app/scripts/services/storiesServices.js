@@ -4,9 +4,14 @@ module.factory('StoriesService', ['$http', '$q', function ($http, $q) {
     var _team = {};
     var _cachedScrumData = undefined;
 
+    // TODO refactor this
     function generateStoryId(stories) {
         var lastAddedStory = _.last(stories);
         return lastAddedStory.storyId + 1;
+    }
+
+    function generateTeamId(team) {
+        return _.last(team).teamId;
     }
 
     return {
@@ -40,6 +45,14 @@ module.factory('StoriesService', ['$http', '$q', function ($http, $q) {
                 }
 
                 return team;
+            });
+        },
+
+        storeTeam: function (team) {
+            _cachedScrumData.teams.push({
+                teamId: generateTeamId(_cachedScrumData.teams),
+                teamName: team.teamName,
+                stories: team.stories
             });
         },
         storeSelectedTeam: function (selectedTeam) {

@@ -30,22 +30,19 @@
                         <span class="label label-info">Status</span>
                     </th>
                 </tr>
-                <tr class="data" ng-repeat="story in storiesModel.stories">
-                    <div ng-click="addOrEditStory(story)">
-                        <td>
-                            {{story.description}}
-                        </td>
-                        <td>
-                            {{story.estimation}}
-                        </td>
-                        <td>
-                            {{story.owner}}
-                        </td>
-                        <td>
-                            {{story.status}}
-                        </td>
-                    </div>
-
+                <tr class="data" ng-repeat="story in storiesModel.stories" ng-click="addOrEditStory(story)">
+                    <td>
+                        {{story.description}}
+                    </td>
+                    <td>
+                        {{story.estimation}}
+                    </td>
+                    <td>
+                        {{story.owner}}
+                    </td>
+                    <td>
+                        {{story.status}}
+                    </td>
                 </tr>
             </table>
 

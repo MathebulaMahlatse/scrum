@@ -1,4 +1,4 @@
-describe('Unit Test for StoriesService', function() {
+fdescribe('Unit Test for StoriesService', function() {
     beforeEach(angular.mock.module('scrum.storiesService'));
 
     var storiesService, httpBackEnd, actual;
@@ -26,6 +26,11 @@ describe('Unit Test for StoriesService', function() {
         ]
     };
 
+    var teamToBeStored = {
+        teamName: 'team1',
+        stories: []
+    };
+
     beforeEach(inject(function($httpBackend, StoriesService) {
         httpBackEnd = $httpBackend;
         storiesService = StoriesService;
@@ -42,11 +47,14 @@ describe('Unit Test for StoriesService', function() {
 
     describe('getStoriesAssignedToTeams', function () {
         it('get stories assigned to team', function () {
-            expect(storiesService.getStoriesAssignedToTeams()).toEqual(mockTeamData)
+            storiesService.getStoriesAssignedToTeams().then(function (team) {
+                expect(team).toEqual(mockTeamData);
+            });
+
         });
     });
 
-    describe('addStoriesAssignedToTeam', function () {
+    /*describe('addStoriesAssignedToTeam', function () {
         it('should store stories', function () {
             var story = {
                 teamId: 1,
@@ -61,36 +69,52 @@ describe('Unit Test for StoriesService', function() {
 
             storiesService.addStoriesAssignedToTeam(story);
 
-            expect(storiesService.getStoriesAssignedToTeams()).toEqual({
-                teams: [
-                    {
-                        teamId: 1,
-                        stories: [
-                            {
-                                storyId: 1,
-                                status: ''
-                            },
-                            {
-                                storyId: 2,
-                                description: 'testing',
-                                estimation: 'large',
-                                status: 'backlog',
-                                owner: 'William, developer'
-                            }
-                        ]
-                    },
-                    {
-                        teamId: 2,
-                        stories: [
-                            {
-                                storyId: 1,
-                                status: ''
-                            }
-                        ]
-                    }
-                ]
+
+            storiesService.getStoriesAssignedToTeams().then(function (team) {
+                expect(team).toEqual({
+                    teams: [
+                        {
+                            teamId: 11,
+                            stories: [
+                                {
+                                    storyId: 1,
+                                    status: ''
+                                },
+                                {
+                                    storyId: 2,
+                                    description: 'testing',
+                                    estimation: 'large',
+                                    status: 'backlog',
+                                    owner: 'William, developer'
+                                }
+                            ]
+                        },
+                        {
+                            teamId: 2,
+                            stories: [
+                                {
+                                    storyId: 1,
+                                    status: ''
+                                }
+                            ]
+                        }
+                    ]
+                })
             });
 
         });
     });
+
+    describe('storeTeam', function () {
+        it('should add a team', function () {
+            storiesService.storeTeam(teamToBeStored);
+
+            storiesService.getStoriesAssignedToTeams().then(function (team) {
+                console.log('aaaa')
+                expect(team).toEqual({
+                    what: ''
+                });
+            });
+        });
+    });*/
 });

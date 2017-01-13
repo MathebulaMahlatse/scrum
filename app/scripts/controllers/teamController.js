@@ -1,4 +1,7 @@
-var module = angular.module('scrum.teamController', ['angularModalService']);
+var module = angular.module('scrum.teamController',
+    [
+        'angularModalService'
+    ]);
 
 module.controller('TeamController',['$scope', 'StoriesService', '$location', 'ModalService' ,function ($scope, StoriesService, $location, ModalService) {
     StoriesService.getStoriesAssignedToTeams().then(function (response) {

@@ -19,7 +19,8 @@ angular
       'scrum.teamController',
       'scrum.storiesService',
       'scrum.storiesController',
-      'scrum.teamModal'
+      'scrum.teamModal',
+      'scrum.storiesModal'
   ])
   .config(function ($routeProvider, $locationProvider) {
         $routeProvider

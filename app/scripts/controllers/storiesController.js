@@ -19,8 +19,7 @@ module.controller('StoriesController', ['$scope', '$location', 'StoriesService',
             templateUrl: "views/storiesModal.html",
             controller: "StoriesModalController",
             inputs: {
-                title: "Adding a team",
-                story: story
+                title: story
             }
         }).then(function(modal) {
             modal.element.modal();
