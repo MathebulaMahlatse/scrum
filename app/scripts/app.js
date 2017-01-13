@@ -18,7 +18,8 @@ angular
     'ngTouch',
       'scrum.teamController',
       'scrum.storiesService',
-      'scrum.storiesController'
+      'scrum.storiesController',
+      'scrum.teamModal'
   ])
   .config(function ($routeProvider, $locationProvider) {
         $routeProvider
