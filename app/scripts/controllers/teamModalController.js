@@ -6,7 +6,8 @@ app.controller('TeamModalController', [
         $scope.title = title;
         $scope.name = null;
 
-        $scope.close = function() {
+        //TODO Fix me
+        $scope.submitForm = function() {
             close({
                 teamName: $scope.name
             }, 500);

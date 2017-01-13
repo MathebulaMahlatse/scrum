@@ -8,8 +8,25 @@ app.controller('StoriesModalController', [
         $scope.estimation = title && title.estimation;
         $scope.owner = title && title.owner;
         $scope.status = title && title.status;
+        $scope.title = title && title.status;
 
-        $scope.title = title.status;
+        if(_.isUndefined(title)) {
+            $scope.status = 'backlog';
+            $scope.estimation = 'small';
+        }
+
+        $scope.statusOfTasks = [
+            'backlog',
+            'todo',
+            'in progress',
+            'done'
+        ];
+
+        $scope.estimationStages = [
+            'small',
+            'medium',
+            'large'
+        ];
 
         $scope.close = function() {
             close({

@@ -14,12 +14,27 @@
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="name" placeholder="Name of the team" ng-model="name">
                             </div>
+                        </div>
 
-                            <label for="name" class="col-sm-2 control-label">Name</label>
+                        <div class="form-group">
+                            <label for="description" class="col-sm-2 control-label">description</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="name" placeholder="Name of the team" ng-model="name">
+                                <input type="text" class="form-control" id="description" placeholder="Name of the team" ng-model="description">
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Status</label>
+                            <select ng-model="status" ng-options="statusOfTask for statusOfTask in statusOfTasks">
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Estimation</label>
+                            <select ng-model="estimation" ng-options="estimationStage for estimationStage in estimationStages">
+                            </select>
+                        </div>
+
                     </form>
                 </div>
             </div>

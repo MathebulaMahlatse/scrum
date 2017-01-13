@@ -8,20 +8,22 @@
                 </div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form">
+                    <form class="form-horizontal" name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
                         <div class="form-group">
                             <label for="name" class="col-sm-2 control-label">Name</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="name" placeholder="Name of the team" ng-model="name">
+                                <input type="text" class="form-control" id="name" placeholder="Name of the team" ng-model="name" required>
                             </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary" data-dismiss="modal">OK</button>
+                            <button type="button" ng-click="cancel()" class="btn">Cancel</button>
                         </div>
                     </form>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" ng-click="close()" class="btn btn-primary" data-dismiss="modal">OK</button>
-                <button type="button" ng-click="cancel()" class="btn">Cancel</button>
-            </div>
+
         </div>
     </div>
 </div>
