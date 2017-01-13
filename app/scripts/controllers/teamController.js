@@ -20,6 +20,15 @@ module.controller('TeamController',['$scope', 'StoriesService', '$location', 'Mo
         }).then(function(modal) {
             modal.element.modal();
             modal.close.then(function(result) {
+                $scope.teamsAndStoriesOverview.push({
+                    teamName: result.teamName,
+                    statusOfStories: {
+                        backlog: 0,
+                        todo: 0,
+                        inProgress: 0,
+                        done: 0
+                    }
+                })
             });
         });
     };
