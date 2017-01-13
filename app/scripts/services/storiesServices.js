@@ -1,6 +1,6 @@
 var module = angular.module('scrum.storiesService', []);
 
-module.factory('StoriesService', ['$http', function ($http) {
+module.factory('StoriesService', ['$http', '$q', function ($http, $q) {
     var _team = {};
     var _cachedScrumData = undefined;
 
@@ -17,7 +17,9 @@ module.factory('StoriesService', ['$http', function ($http) {
                     return response.data;
                 })
             } else {
-                return _cachedScrumData;
+                var deferred = $q.defer();
+                deferred.resolve(_cachedScrumData);
+                return deferred.promise
             }
 
         },
