@@ -1,4 +1,3 @@
-'use strict';
 fdescribe('Unit Test for StoriesService', function() {
     beforeEach(angular.mock.module('scrum.storiesService'));
 
@@ -27,10 +26,10 @@ fdescribe('Unit Test for StoriesService', function() {
         ]
     };
 
-    /*var teamToBeStored = {
+    var teamToBeStored = {
         teamName: 'team1',
         stories: []
-    };*/
+    };
 
     beforeEach(inject(function($httpBackend, StoriesService) {
         httpBackEnd = $httpBackend;

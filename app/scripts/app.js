@@ -1,12 +1,21 @@
 'use strict';
+
+/**
+ * @ngdoc overview
+ * @name prodAngularApp
+ * @description
+ * # prodAngularApp
+ *
+ * Main module of the application.
+ */
 angular
-  .module('scrum', [
-      'ngAnimate',
-      'ngCookies',
-      'ngResource',
-      'ngRoute',
-      'ngSanitize',
-      'ngTouch',
+  .module('prodAngularApp', [
+    'ngAnimate',
+    'ngCookies',
+    'ngResource',
+    'ngRoute',
+    'ngSanitize',
+    'ngTouch',
       'scrum.teamController',
       'scrum.storiesService',
       'scrum.storiesController',
@@ -16,7 +25,7 @@ angular
   .config(function ($routeProvider, $locationProvider) {
         $routeProvider
           .when('/', {
-            templateUrl: 'features/teams/views/scrumTeams.html',
+            templateUrl: 'views/scrumTeams.html',
             controller: 'TeamController'
           })
           .when('/about', {
@@ -24,7 +33,7 @@ angular
             controller: 'AboutCtrl'
           })
         .when('/stories', {
-            templateUrl: 'features/stories/views/stories.html',
+            templateUrl: 'views/stories.html',
             controller: 'StoriesController'
         })
           .otherwise({

@@ -3,7 +3,7 @@
 xdescribe('Controller: AboutCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('scrum'));
+  beforeEach(module('prodAngularApp'));
 
   var AboutCtrl,
     scope;

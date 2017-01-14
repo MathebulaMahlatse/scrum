@@ -15,7 +15,7 @@ module.controller('TeamController',['$scope', 'StoriesService', '$location', 'Mo
 
     $scope.addTeam = function () {
         ModalService.showModal({
-            templateUrl: "features/teams/views/teamModal.html",
+            templateUrl: "views/teamModal.html",
             controller: "TeamModalController",
             inputs: {
                 title: "Adding a team"
@@ -48,6 +48,7 @@ module.controller('TeamController',['$scope', 'StoriesService', '$location', 'Mo
                 inProgress:_.filter(team.stories, {'status': 'in progress'}).length,
                 done:  _.filter(team.stories, {'status': 'done'}).length
             };
+
             return team;
         });
     }
