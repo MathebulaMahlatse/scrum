@@ -7,7 +7,7 @@
  * # AboutCtrl
  * Controller of the prodAngularApp
  */
-angular.module('prodAngularApp')
+angular.module('scrum')
   .controller('AboutCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
