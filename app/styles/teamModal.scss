@@ -5,6 +5,17 @@
       margin-bottom: 0;
       .panel-body {
         padding: 15px 15px 0  15px;
+        .form-group {
+          .col-sm-10 {
+            padding-left: 0;
+          }
+
+          .selector {
+            select {
+              padding: 0.4em;
+            }
+          }
+        }
         .modal-footer {
           border-top: 0;
           padding: 15px 0 15px 15px;

@@ -37,6 +37,7 @@ app.controller('StoriesModalController', [
             if(_.isUndefined(title)) {
                 $scope.status = 'backlog';
                 $scope.estimation = 'small';
+                $scope.owner = 'Mahlatse - Product Owner'
             }
 
             $scope.statusOfTasks = [
