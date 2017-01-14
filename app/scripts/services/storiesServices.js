@@ -7,7 +7,10 @@ module.factory('StoriesService', ['$http', '$q', function ($http, $q) {
     // TODO refactor this
     function generateStoryId(stories) {
         var lastAddedStory = _.last(stories);
-        return lastAddedStory.storyId + 1;
+        if(!_.isUndefined(lastAddedStory)) {
+            return lastAddedStory.storyId + 1;
+        }
+        return 1;
     }
 
     function generateTeamId(team) {

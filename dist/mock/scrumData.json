@@ -1,0 +1,108 @@
+{
+  "teams": [
+    {
+      "teamId": 1,
+      "teamName": "Team 1",
+      "stories": [
+        {
+          "storyId": 1,
+          "name": "name of the story 1",
+          "description": "Description of the story 1",
+          "estimation": "small",
+          "owner": "Mahlatse - Product Owner",
+          "status": "backlog"
+        },
+        {
+          "storyId": 2,
+          "name": "name of the story 1",
+          "description": "Description of the story 1",
+          "estimation": "medium",
+          "owner": "Mahlatse - Product Owner",
+          "status": "todo"
+        },
+        {
+          "storyId": 3,
+          "name": "name of the story 1",
+          "description": "Description of the story 1",
+          "estimation": "small",
+          "owner": "Sharon - BA",
+          "status": "todo"
+        },
+        {
+          "storyId": 4,
+          "name": "name of the story 1",
+          "description": "Description of the story 1",
+          "estimation": "medium",
+          "owner": "Sharon - BA",
+          "status": "done"
+        },
+        {
+          "storyId": 5,
+          "name": "name of the story 1",
+          "description": "Description of the story 1",
+          "estimation": "large",
+          "owner": "William - The developer",
+          "status": "done"
+        }
+      ]
+    },
+    {
+      "teamId": 2,
+      "teamName": "Team 2",
+      "stories": [
+        {
+          "storyId": 1,
+          "name": "name of the story 2",
+          "description": "Description of the story 1",
+          "estimation": "large",
+          "owner": "Mahlatse - Product Owner",
+          "status": "backlog"
+        },
+        {
+          "storyId": 2,
+          "name": "name of the story 2",
+          "description": "Description of the story 1",
+          "estimation": "medium",
+          "owner": "Sharon - BA",
+          "status": "done"
+        },
+        {
+          "storyId": 3,
+          "name": "name of the story 2",
+          "description": "Description of the story 1",
+          "estimation": "small",
+          "owner": "William - The developer",
+          "status": "done"
+        }
+      ]
+    },
+    {
+      "teamId": 3,
+      "teamName": "Team 3",
+      "stories": [
+        {
+          "storyId": 1,
+          "name": "name of the story 2",
+          "description": "Description of the story 1",
+          "estimation": "small",
+          "owner": "William - The developer",
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "teamId": 4,
+      "teamName": "Team 4",
+      "stories": [
+        {
+          "storyId": 1,
+          "name": "name of the story 2",
+          "description": "Description of the story 1",
+          "estimation": "small",
+          "owner": "Sharon - BA",
+          "status": "in progress"
+        }
+      ]
+    }
+  ]
+}
