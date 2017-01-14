@@ -13,8 +13,9 @@ app.controller('StoriesModalController', [
 
 
         $scope.submitForm = function() {
+            $element.modal('hide');
             close({
-                storyId: title.storyId,
+                storyId: title && title.storyId,
                 description: $scope.description,
                 estimation: $scope.estimation,
                 owner: $scope.owner,
@@ -24,7 +25,6 @@ app.controller('StoriesModalController', [
 
         $scope.cancel = function() {
             $element.modal('hide');
-
             close({
             }, 500);
         };
