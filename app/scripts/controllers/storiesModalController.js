@@ -10,23 +10,8 @@ app.controller('StoriesModalController', [
         $scope.status = title && title.status;
         $scope.title = title && title.status;
 
-        if(_.isUndefined(title)) {
-            $scope.status = 'backlog';
-            $scope.estimation = 'small';
-        }
+        initializeData();
 
-        $scope.statusOfTasks = [
-            'backlog',
-            'todo',
-            'in progress',
-            'done'
-        ];
-
-        $scope.estimationStages = [
-            'small',
-            'medium',
-            'large'
-        ];
 
         $scope.close = function() {
             close({
@@ -47,5 +32,31 @@ app.controller('StoriesModalController', [
                 status: $scope.status
             }, 500);
         };
+
+        function initializeData() {
+            if(_.isUndefined(title)) {
+                $scope.status = 'backlog';
+                $scope.estimation = 'small';
+            }
+
+            $scope.statusOfTasks = [
+                'backlog',
+                'todo',
+                'in progress',
+                'done'
+            ];
+
+            $scope.estimationStages = [
+                'small',
+                'medium',
+                'large'
+            ];
+
+            $scope.ownerOfStory = [
+                'Mahlatse - Product Owner',
+                'Sharon - BA',
+                'William - The developer'
+            ];
+        }
 
     }]);

@@ -9,7 +9,7 @@
           "name": "name of the story 1",
           "description": "Description of the story 1",
           "estimation": "small",
-          "owner": "owner of the story",
+          "owner": "Mahlatse - Product Owner",
           "status": "backlog"
         },
         {
@@ -17,7 +17,7 @@
           "name": "name of the story 1",
           "description": "Description of the story 1",
           "estimation": "medium",
-          "owner": "owner of the story",
+          "owner": "Mahlatse - Product Owner",
           "status": "todo"
         },
         {
@@ -25,7 +25,7 @@
           "name": "name of the story 1",
           "description": "Description of the story 1",
           "estimation": "small",
-          "owner": "owner of the story",
+          "owner": "Sharon - BA",
           "status": "todo"
         },
         {
@@ -33,7 +33,7 @@
           "name": "name of the story 1",
           "description": "Description of the story 1",
           "estimation": "medium",
-          "owner": "owner of the story",
+          "owner": "Sharon - BA",
           "status": "done"
         },
         {
@@ -41,7 +41,7 @@
           "name": "name of the story 1",
           "description": "Description of the story 1",
           "estimation": "large",
-          "owner": "owner of the story",
+          "owner": "William - The developer",
           "status": "done"
         }
       ]
@@ -55,7 +55,7 @@
           "name": "name of the story 2",
           "description": "Description of the story 1",
           "estimation": "large",
-          "owner": "owner of the story",
+          "owner": "Mahlatse - Product Owner",
           "status": "backlog"
         },
         {
@@ -63,7 +63,7 @@
           "name": "name of the story 2",
           "description": "Description of the story 1",
           "estimation": "medium",
-          "owner": "owner of the story",
+          "owner": "Sharon - BA",
           "status": "done"
         },
         {
@@ -71,7 +71,7 @@
           "name": "name of the story 2",
           "description": "Description of the story 1",
           "estimation": "small",
-          "owner": "owner of the story",
+          "owner": "William - The developer",
           "status": "done"
         }
       ]
@@ -85,7 +85,7 @@
           "name": "name of the story 2",
           "description": "Description of the story 1",
           "estimation": "small",
-          "owner": "owner of the story",
+          "owner": "William - The developer",
           "status": "todo"
         }
       ]
@@ -99,7 +99,7 @@
           "name": "name of the story 2",
           "description": "Description of the story 1",
           "estimation": "small",
-          "owner": "owner of the story",
+          "owner": "Sharon - BA",
           "status": "in progress"
         }
       ]
