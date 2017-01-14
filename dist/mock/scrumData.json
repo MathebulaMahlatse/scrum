@@ -8,7 +8,7 @@
           "storyId": 1,
           "name": "name of the story 1",
           "description": "Description of the story 1",
-          "estimation": "small",
+          "estimation": "estimation of the story",
           "owner": "owner of the story",
           "status": "backlog"
         },
@@ -16,7 +16,7 @@
           "storyId": 2,
           "name": "name of the story 1",
           "description": "Description of the story 1",
-          "estimation": "medium",
+          "estimation": "estimation of the story",
           "owner": "owner of the story",
           "status": "todo"
         },
@@ -24,7 +24,7 @@
           "storyId": 3,
           "name": "name of the story 1",
           "description": "Description of the story 1",
-          "estimation": "small",
+          "estimation": "estimation of the story",
           "owner": "owner of the story",
           "status": "todo"
         },
@@ -32,7 +32,7 @@
           "storyId": 4,
           "name": "name of the story 1",
           "description": "Description of the story 1",
-          "estimation": "medium",
+          "estimation": "estimation of the story",
           "owner": "owner of the story",
           "status": "done"
         },
@@ -40,7 +40,7 @@
           "storyId": 5,
           "name": "name of the story 1",
           "description": "Description of the story 1",
-          "estimation": "large",
+          "estimation": "estimation of the story",
           "owner": "owner of the story",
           "status": "done"
         }
@@ -54,7 +54,7 @@
           "storyId": 1,
           "name": "name of the story 2",
           "description": "Description of the story 1",
-          "estimation": "large",
+          "estimation": "estimation of the story",
           "owner": "owner of the story",
           "status": "backlog"
         },
@@ -62,7 +62,7 @@
           "storyId": 2,
           "name": "name of the story 2",
           "description": "Description of the story 1",
-          "estimation": "medium",
+          "estimation": "estimation of the story",
           "owner": "owner of the story",
           "status": "done"
         },
@@ -70,7 +70,7 @@
           "storyId": 3,
           "name": "name of the story 2",
           "description": "Description of the story 1",
-          "estimation": "small",
+          "estimation": "estimation of the story",
           "owner": "owner of the story",
           "status": "done"
         }
@@ -84,7 +84,7 @@
           "storyId": 1,
           "name": "name of the story 2",
           "description": "Description of the story 1",
-          "estimation": "small",
+          "estimation": "estimation of the story",
           "owner": "owner of the story",
           "status": "todo"
         }
@@ -98,7 +98,7 @@
           "storyId": 1,
           "name": "name of the story 2",
           "description": "Description of the story 1",
-          "estimation": "small",
+          "estimation": "estimation of the story",
           "owner": "owner of the story",
           "status": "in progress"
         }
