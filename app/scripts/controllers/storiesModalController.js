@@ -8,13 +8,13 @@ app.controller('StoriesModalController', [
         $scope.estimation = title && title.estimation;
         $scope.owner = title && title.owner;
         $scope.status = title && title.status;
-        $scope.title = title && title.status;
 
         initializeData();
 
 
-        $scope.close = function() {
+        $scope.submitForm = function() {
             close({
+                storyId: title.storyId,
                 description: $scope.description,
                 estimation: $scope.estimation,
                 owner: $scope.owner,
@@ -26,10 +26,6 @@ app.controller('StoriesModalController', [
             $element.modal('hide');
 
             close({
-                description: $scope.description,
-                estimation: $scope.estimation,
-                owner: $scope.owner,
-                status: $scope.status
             }, 500);
         };
 

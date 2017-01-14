@@ -22,7 +22,22 @@ module.controller('StoriesController', ['$scope', '$location', 'StoriesService',
             }
         }).then(function(modal) {
             modal.element.modal();
-            modal.close.then(function(result) {
+            modal.close.then(function(story) {
+                if(!_.isUndefined(story)) {
+                    var updatedStory = {
+                        teamId: selectedTeam.teamId,
+                        story: {
+                            storyId: story.storyId,
+                            description: story.description,
+                            estimation: story.estimation,
+                            owner: story.owner,
+                            status: story.status
+                        }
+                    };
+
+                    StoriesService.addOrEditStoriesAssignedToTeam(updatedStory);
+                    refreshModelAfterAddOrEditOperation();
+                }
             });
         });
     };
@@ -61,5 +76,16 @@ module.controller('StoriesController', ['$scope', '$location', 'StoriesService',
                 stories: stories.completedTasks
             }
         ];
+    }
+
+    function refreshModelAfterAddOrEditOperation() {
+        StoriesService.getStoriesAssignedToTeams().then(function (response) {
+            _.forEach(response.teams, function (team) {
+                if(team.teamId === selectedTeam.teamId) {
+                    refreshViewModel(filterSelectedTeamForStories(team.stories));
+                }
+            });
+        });
+
     }
 }]);

@@ -1,4 +1,11 @@
 .stories {
+  .page-header{
+    .btn {
+      float: right;
+      padding: 0.1em;
+      margin-top: 0.5em;
+    }
+  }
   table {
     font-family: arial, sans-serif;
     border-collapse: collapse;

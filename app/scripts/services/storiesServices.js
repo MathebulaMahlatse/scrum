@@ -14,6 +14,30 @@ module.factory('StoriesService', ['$http', '$q', function ($http, $q) {
         return _.last(team).teamId;
     }
 
+    function addOrEditStory(stories, newOrExistingStory) {
+        var isStoryModified = false;
+        _.forEach(stories, function (story) {
+            if(story.storyId === newOrExistingStory.storyId) {
+                story.description = newOrExistingStory.description;
+                story.estimation = newOrExistingStory.estimation;
+                story.owner = newOrExistingStory.owner;
+                story.status = newOrExistingStory.status;
+
+                isStoryModified = true;
+            }
+        });
+
+        if(!isStoryModified) {
+            stories.push({
+                storyId: generateStoryId(stories),
+                description: newOrExistingStory.description,
+                estimation: newOrExistingStory.estimation,
+                owner: newOrExistingStory.owner,
+                status: newOrExistingStory.status
+            })
+        }
+    }
+
     return {
         getStoriesAssignedToTeams: function () {
             if(_.isUndefined(_cachedScrumData)) {
@@ -29,19 +53,11 @@ module.factory('StoriesService', ['$http', '$q', function ($http, $q) {
 
         },
 
-        addStoriesAssignedToTeam: function (storyAssociatedWithATeam) {
+        addOrEditStoriesAssignedToTeam: function (storyAssociatedWithATeam) {
             var story = storyAssociatedWithATeam.story;
             _.forEach(_cachedScrumData.teams, function (team) {
                 if(team.teamId == storyAssociatedWithATeam.teamId) {
-                    team.stories.push({
-                        storyId: generateStoryId(team.stories),
-                        description: story.description,
-                        estimation: story.estimation,
-                        owner: story.owner,
-                        status: story.status
-                    });
-
-                    return team;
+                    addOrEditStory(team.stories, story);
                 }
 
                 return team;
