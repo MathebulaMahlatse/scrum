@@ -23,6 +23,10 @@ module.controller('TeamController',['$scope', 'StoriesService', '$location', 'Mo
         }).then(function(modal) {
             modal.element.modal();
             modal.close.then(function(result) {
+                StoriesService.storeTeam({
+                    teamName: result.teamName,
+                    stories: []
+                });
                 $scope.teamsAndStoriesOverview.push({
                     teamName: result.teamName,
                     statusOfStories: {

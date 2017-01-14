@@ -1,3 +1,15 @@
 .modal {
-
+  .modal-dialog {
+    width: 705px;
+    .panel {
+      margin-bottom: 0;
+      .panel-body {
+        padding: 15px 15px 0  15px;
+        .modal-footer {
+          border-top: 0;
+          padding: 15px 0 15px 15px;
+        }
+      }
+    }
+  }
 }

@@ -8,6 +8,7 @@ app.controller('TeamModalController', [
 
         //TODO Fix me
         $scope.submitForm = function() {
+            $element.modal('hide');
             close({
                 teamName: $scope.name
             }, 500);
