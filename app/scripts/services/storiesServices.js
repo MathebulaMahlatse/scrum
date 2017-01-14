@@ -14,7 +14,7 @@ module.factory('StoriesService', ['$http', '$q', function ($http, $q) {
     }
 
     function generateTeamId(team) {
-        return _.last(team).teamId;
+        return _.last(team).teamId + 1;
     }
 
     function addOrEditStory(stories, newOrExistingStory) {
