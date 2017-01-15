@@ -1,3 +1,4 @@
+'use strict';
 describe('Unit Test for team controller', function () {
     beforeEach(angular.mock.module('scrum.teamController'));
 
