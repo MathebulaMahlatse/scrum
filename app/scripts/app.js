@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-  .module('prodAngularApp', [
+  .module('scrum', [
       'ngAnimate',
       'ngCookies',
       'ngResource',
