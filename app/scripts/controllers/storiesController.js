@@ -7,7 +7,7 @@ var module = angular.module('scrum.storiesController',
 module.controller('StoriesController', ['$scope', '$location', 'StoriesService', 'ModalService', function ($scope, $location, StoriesService, ModalService) {
     var selectedTeam = StoriesService.retrieveSelectedTeam();
 
-    if(selectedTeam && !selectedTeam.teamName) {
+    if(selectedTeam && !selectedTeam.teamId > 0) {
         $location.path('/');
     }
 

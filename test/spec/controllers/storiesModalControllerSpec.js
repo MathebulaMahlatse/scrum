@@ -75,7 +75,7 @@ describe('Unit Test for stories modal controller', function () {
     describe('when cancelling a form', function () {
         it('should hide modal', function () {
             initialize();
-            scope.submitForm();
+            scope.cancel();
             checkIfModalWasCalled();
         });
     });
