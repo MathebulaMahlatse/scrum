@@ -6,19 +6,23 @@ app.controller('TeamModalController', [
         $scope.title = title;
         $scope.name = null;
 
-        //TODO Fix me
         $scope.submitForm = function() {
-            $element.modal('hide');
-            close({
+            hideModal();
+            callBackOnClosingAModal({
                 teamName: $scope.name
-            }, 500);
+            });
         };
 
         $scope.cancel = function() {
-            $element.modal('hide');
-            close({
-                teamName: $scope.name
-            }, 500);
+            hideModal();
+            callBackOnClosingAModal();
         };
 
+        function hideModal() {
+            $element.modal('hide')
+        }
+
+        function callBackOnClosingAModal(model) {
+            close(model, 500);
+        }
     }]);
