@@ -12,7 +12,7 @@ describe('Unit Test for Stories Controller', function () {
     }
     beforeEach(inject(function ($controller, $rootScope, $q) {
         scope = $rootScope.$new();
-        storiesService = jasmine.createSpyObj('StoriesService', ['retrieveSelectedTeam']);
+        storiesService = jasmine.createSpyObj('StoriesService', ['retrieveSelectedTeam','addOrEditStoriesAssignedToTeam', 'getStoriesAssignedToTeams']);
         location = jasmine.createSpyObj('$location', ['path']);
         modalService = jasmine.createSpyObj('ModalService', ['showModal']);
 
@@ -20,7 +20,7 @@ describe('Unit Test for Stories Controller', function () {
 
         storiesService.retrieveSelectedTeam.and.returnValue({
             teamName: 'some team name',
-            teamId: 'some id',
+            teamId: 1,
             stories: [
                 {
                     storyId: 'id',
@@ -29,7 +29,37 @@ describe('Unit Test for Stories Controller', function () {
             ]
         });
 
-        modalService.showModal.and.returnValue($q.when({}));
+        modalService.showModal.and.returnValue($q.when({
+            element: {
+                modal: function () {}
+            },
+            close: $q.when({
+                storyId: 1,
+                description: 'description',
+                estimation: 'estimation',
+                owner: 'owner',
+                status: 'status'
+            })
+        }));
+
+        storiesService.getStoriesAssignedToTeams.and.returnValue($q.when({
+            teams: [
+                {
+                    teamName: 'team name',
+                    teamId: 1,
+                    stories: [
+                        {
+                            storyId: 1,
+                            description: 'description',
+                            estimation: 'estimation',
+                            owner: 'owner',
+                            status: 'status'
+                        }
+                    ]
+
+                }
+            ]
+        }))
     }));
 
     describe('when initializing', function () {
@@ -82,6 +112,7 @@ describe('Unit Test for Stories Controller', function () {
             var story = 'some story';
             initialize();
             scope.addOrEditStory(story);
+            scope.$digest();
             expect(modalService.showModal).toHaveBeenCalledWith({
                 templateUrl: "views/storiesModal.html",
                 controller: "StoriesModalController",
@@ -89,6 +120,19 @@ describe('Unit Test for Stories Controller', function () {
                     title: story
                 }
             });
+
+            expect(storiesService.addOrEditStoriesAssignedToTeam).toHaveBeenCalledWith({
+                teamId: 1,
+                story: {
+                    storyId: 1,
+                    description: 'description',
+                    estimation: 'estimation',
+                    owner: 'owner',
+                    status: 'status'
+                }
+            });
+
+            expect(storiesService.getStoriesAssignedToTeams).toHaveBeenCalled();
         });
     });
 });
