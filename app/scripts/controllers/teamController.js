@@ -21,12 +21,14 @@ module.controller('TeamController',['$scope', 'StoriesService', '$location', 'Mo
         }).then(function(modal) {
             modal.element.modal();
             modal.close.then(function(result) {
-                StoriesService.storeTeam({
-                    teamName: result.teamName,
-                    stories: []
-                });
+                if(!_.isUndefined(result)) {
+                    StoriesService.storeTeam({
+                        teamName: result.teamName,
+                        stories: []
+                    });
 
-                refreshModel();
+                    refreshModel();
+                }
             });
         });
     };
