@@ -22,6 +22,10 @@ describe('Unit Test for StoriesService', function() {
                         status: ''
                     }
                 ]
+            },
+            {
+                teamId: 3,
+                stories: []
             }
         ]
     };
@@ -54,67 +58,62 @@ describe('Unit Test for StoriesService', function() {
         });
     });
 
-    /*describe('addStoriesAssignedToTeam', function () {
-        it('should store stories', function () {
-            var story = {
-                teamId: 1,
-                story: {
-                    storyId: 1,
-                    description: 'testing',
-                    estimation: 'large',
-                    status: 'backlog',
-                    owner: 'William, developer'
-                }
-            };
-
-            storiesService.addStoriesAssignedToTeam(story);
-
-
-            storiesService.getStoriesAssignedToTeams().then(function (team) {
-                expect(team).toEqual({
-                    teams: [
-                        {
-                            teamId: 11,
-                            stories: [
-                                {
-                                    storyId: 1,
-                                    status: ''
-                                },
-                                {
-                                    storyId: 2,
-                                    description: 'testing',
-                                    estimation: 'large',
-                                    status: 'backlog',
-                                    owner: 'William, developer'
-                                }
-                            ]
-                        },
-                        {
-                            teamId: 2,
-                            stories: [
-                                {
-                                    storyId: 1,
-                                    status: ''
-                                }
-                            ]
-                        }
-                    ]
-                })
+    describe('when storing selected team', function () {
+        it('should store and retrieve team', function () {
+            storiesService.storeSelectedTeam({
+                teamName: 'team to store'
             });
 
+            expect(storiesService.retrieveSelectedTeam()).toEqual({ teamName: 'team to store' });
         });
     });
 
-    describe('storeTeam', function () {
-        it('should add a team', function () {
-            storiesService.storeTeam(teamToBeStored);
-
-            storiesService.getStoriesAssignedToTeams().then(function (team) {
-                console.log('aaaa')
-                expect(team).toEqual({
-                    what: ''
-                });
+    describe('when storing a team', function () {
+        it('should store a team', function () {
+            storiesService.storeTeam({
+                teamName: 'name of the team'
             });
         });
-    });*/
+    });
+
+    describe('when adding Or edit Stories Assigned To Team', function () {
+        it('should add a story to existing team', function () {
+            storiesService.addOrEditStoriesAssignedToTeam({
+                teamId: 1,
+                story: {
+                    description: 'description',
+                    estimation: 'estimation',
+                    owner: 'owner',
+                    status: 'status'
+                }
+            });
+        });
+
+        it('should edit a story to existing team', function () {
+            storiesService.addOrEditStoriesAssignedToTeam({
+                teamId: 1,
+                story: {
+                    storyId: 1,
+                    description: 'description',
+                    estimation: 'estimation',
+                    owner: 'owner',
+                    status: 'status'
+                }
+            });
+        });
+    });
+
+    describe('when adding a story to a team with no existing stories', function () {
+        it('should a story', function () {
+            storiesService.addOrEditStoriesAssignedToTeam({
+                teamId: 3,
+                story: {
+                    description: 'description',
+                    estimation: 'estimation',
+                    owner: 'owner',
+                    status: 'status'
+                }
+            });
+        });
+    });
 });
