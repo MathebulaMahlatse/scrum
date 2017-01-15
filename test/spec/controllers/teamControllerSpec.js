@@ -5,7 +5,7 @@ describe('Unit Test for team controller', function () {
     var scope, storiesService, location, modalService;
     beforeEach(inject(function ($controller, $rootScope, $q) {
         scope = $rootScope.$new();
-        storiesService = jasmine.createSpyObj('StoriesService', ['getStoriesAssignedToTeams', 'storeSelectedTeam']);
+        storiesService = jasmine.createSpyObj('StoriesService', ['getStoriesAssignedToTeams', 'storeSelectedTeam', 'storeTeam']);
         location = jasmine.createSpyObj('$location', ['path']);
         modalService = jasmine.createSpyObj('ModalService', ['showModal']);
 
@@ -25,7 +25,12 @@ describe('Unit Test for team controller', function () {
         }));
 
         modalService.showModal.and.returnValue($q.when({
-            team: 'team'
+            element: {
+                modal: function () {}
+            },
+            close: $q.when({
+                teamName: 'team name'
+            })
         }));
 
         $controller('TeamController', {
@@ -77,15 +82,21 @@ describe('Unit Test for team controller', function () {
     });
 
     describe('when adding a team', function () {
-        it('should have called show modal', function () {
+        it('should have called show modal and store team', function () {
             scope.addTeam();
+            scope.$digest();
             expect(modalService.showModal).toHaveBeenCalledWith({
                 templateUrl: "views/teamModal.html",
                 controller: "TeamModalController",
                 inputs: {
                     title: "Adding a team"
                 }
-            })
+            });
+
+            expect(storiesService.storeTeam).toHaveBeenCalledWith({
+                teamName: 'team name',
+                stories: []
+            });
         });
     });
 });
