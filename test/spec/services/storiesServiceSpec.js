@@ -1,4 +1,4 @@
-fdescribe('Unit Test for StoriesService', function() {
+describe('Unit Test for StoriesService', function() {
     beforeEach(angular.mock.module('scrum.storiesService'));
 
     var storiesService, httpBackEnd, actual;

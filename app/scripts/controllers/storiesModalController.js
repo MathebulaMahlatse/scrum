@@ -3,7 +3,6 @@ var app = angular.module('scrum.storiesModal', []);
 app.controller('StoriesModalController', [
     '$scope', '$element', 'title', 'close',
     function($scope, $element, title, close) {
-
         $scope.description = title && title.description;
         $scope.estimation = title && title.estimation;
         $scope.owner = title && title.owner;
@@ -11,22 +10,20 @@ app.controller('StoriesModalController', [
 
         initializeData();
 
-
         $scope.submitForm = function() {
-            $element.modal('hide');
-            close({
+            hideModal();
+            closeModal({
                 storyId: title && title.storyId,
                 description: $scope.description,
                 estimation: $scope.estimation,
                 owner: $scope.owner,
                 status: $scope.status
-            }, 500);
+            })
         };
 
         $scope.cancel = function() {
-            $element.modal('hide');
-            close({
-            }, 500);
+            hideModal();
+            closeModal()
         };
 
         function initializeData() {
@@ -54,6 +51,14 @@ app.controller('StoriesModalController', [
                 'Sharon - BA',
                 'William - The developer'
             ];
+        }
+
+        function hideModal() {
+            $element.modal('hide');
+        }
+
+        function closeModal(story) {
+            close(story, 500);
         }
 
     }]);
