@@ -41,12 +41,26 @@ module.exports = function(config) {
       "test/spec/**/*.js"
     ],
 
+    reporters: ['progress', 'coverage'],
+
     // list of files / patterns to exclude
     exclude: [
     ],
 
     // web server port
     port: 8080,
+
+    preprocessors: {
+      // source files, that you wanna generate coverage for
+      // do not include tests or libraries
+      // (these files will be instrumented by Istanbul)
+      'app/**/*.js': ['coverage']
+    },
+
+    coverageReporter: {
+      type : 'html',
+      dir : 'coverage/'
+    },
 
     // Start these browsers, currently available:
     // - Chrome
@@ -63,7 +77,8 @@ module.exports = function(config) {
     // Which plugins to enable
     plugins: [
       "karma-phantomjs-launcher",
-      "karma-jasmine"
+      "karma-jasmine",
+      'karma-coverage'
     ],
 
     // Continuous Integration mode
