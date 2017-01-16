@@ -114,7 +114,7 @@ describe('Unit Test for Stories Controller', function () {
             scope.addOrEditStory(story);
             scope.$digest();
             expect(modalService.showModal).toHaveBeenCalledWith({
-                templateUrl: "views/storiesModal.html",
+                templateUrl: "features/stories/views/storiesModal.html",
                 controller: "StoriesModalController",
                 inputs: {
                     title: story

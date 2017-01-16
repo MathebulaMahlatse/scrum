@@ -86,7 +86,7 @@ describe('Unit Test for team controller', function () {
             scope.addTeam();
             scope.$digest();
             expect(modalService.showModal).toHaveBeenCalledWith({
-                templateUrl: "views/teamModal.html",
+                templateUrl: "features/teams/views/teamModal.html",
                 controller: "TeamModalController",
                 inputs: {
                     title: "Adding a team"
