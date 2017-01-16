@@ -64,7 +64,7 @@
        ga('send', 'pageview');
     </script>
 
-    <!-- build:js(.) scripts/vendor.js -->
+    <!-- build:js(.) features/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
@@ -81,13 +81,13 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/services/storiesServices.js"></script>
-        <script src="scripts/controllers/teamController.js"></script>
-        <script src="scripts/controllers/storiesController.js"></script>
-        <script src="scripts/controllers/teamModalController.js"></script>
-        <script src="scripts/controllers/storiesModalController.js"></script>
+        <!-- build:js({.tmp,app}) features/scripts.js -->
+        <script src="features/app.js"></script>
+        <script src="features/stories/services/storiesServices.js"></script>
+        <script src="features/teams/controllers/teamController.js"></script>
+        <script src="features/stories/controllers/storiesController.js"></script>
+        <script src="features/teams/controllers/teamModalController.js"></script>
+        <script src="features/stories/controllers/storiesModalController.js"></script>
         <!-- endbuild -->
 </body>
 </html>

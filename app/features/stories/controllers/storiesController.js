@@ -15,7 +15,7 @@ module.controller('StoriesController', ['$scope', '$location', 'StoriesService',
 
     $scope.addOrEditStory = function (story) {
         ModalService.showModal({
-            templateUrl: "views/storiesModal.html",
+            templateUrl: "features/stories/views/storiesModal.html",
             controller: "StoriesModalController",
             inputs: {
                 title: story

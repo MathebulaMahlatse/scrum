@@ -13,7 +13,7 @@ module.controller('TeamController',['$scope', 'StoriesService', '$location', 'Mo
 
     $scope.addTeam = function () {
         ModalService.showModal({
-            templateUrl: "views/teamModal.html",
+            templateUrl: "features/teams/views/teamModal.html",
             controller: "TeamModalController",
             inputs: {
                 title: "Adding a team"
