@@ -58,16 +58,6 @@ describe('Unit Test for StoriesService', function() {
         });
     });
 
-    describe('when storing selected team', function () {
-        it('should store and retrieve team', function () {
-            storiesService.storeSelectedTeam({
-                teamName: 'team to store'
-            });
-
-            expect(storiesService.retrieveSelectedTeam()).toEqual({ teamName: 'team to store' });
-        });
-    });
-
     describe('when storing a team', function () {
         it('should store a team', function () {
             storiesService.storeTeam({

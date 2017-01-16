@@ -73,12 +73,6 @@ module.factory('StoriesService', ['$http', '$q', function ($http, $q) {
                 teamName: team.teamName,
                 stories: team.stories
             });
-        },
-        storeSelectedTeam: function (selectedTeam) {
-            _team = selectedTeam;
-        },
-        retrieveSelectedTeam: function () {
-            return _team;
         }
     };
 }]);

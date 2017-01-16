@@ -2,10 +2,12 @@
 describe('Unit Test for team controller', function () {
     beforeEach(angular.mock.module('scrum.teamController'));
 
-    var scope, storiesService, location, modalService;
+    var scope, storiesService, location, modalService, localStorage;
     beforeEach(inject(function ($controller, $rootScope, $q) {
         scope = $rootScope.$new();
-        storiesService = jasmine.createSpyObj('StoriesService', ['getStoriesAssignedToTeams', 'storeSelectedTeam', 'storeTeam']);
+        storiesService = jasmine.createSpyObj('StoriesService', ['getStoriesAssignedToTeams', 'storeTeam']);
+        localStorage = jasmine.createSpyObj('LocalStorage', ['addModel']);
+
         location = jasmine.createSpyObj('$location', ['path']);
         modalService = jasmine.createSpyObj('ModalService', ['showModal']);
 
@@ -37,7 +39,8 @@ describe('Unit Test for team controller', function () {
             $scope: scope,
             StoriesService: storiesService,
             $location: location,
-            ModalService: modalService
+            ModalService: modalService,
+            LocalStorage: localStorage
         });
 
         scope.$digest();
@@ -76,7 +79,7 @@ describe('Unit Test for team controller', function () {
             };
             scope.selectTeam(team);
 
-            expect(storiesService.storeSelectedTeam).toHaveBeenCalledWith(team);
+            expect(localStorage.addModel).toHaveBeenCalledWith(team);
             expect(location.path).toHaveBeenCalledWith('/stories');
         });
     });

@@ -1,13 +1,15 @@
 var module = angular.module('scrum.teamController',
     [
-        'angularModalService'
+        'angularModalService',
+        'scrum.localStorage'
     ]);
 
-module.controller('TeamController',['$scope', 'StoriesService', '$location', 'ModalService' ,function ($scope, StoriesService, $location, ModalService) {
+module.controller('TeamController',['$scope', 'StoriesService', '$location', 'ModalService', 'LocalStorage' ,
+    function ($scope, StoriesService, $location, ModalService, LocalStorage) {
     refreshModel();
 
     $scope.selectTeam = function (team) {
-        StoriesService.storeSelectedTeam(team);
+        LocalStorage.addModel(team);
         $location.path('/stories');
     };
 

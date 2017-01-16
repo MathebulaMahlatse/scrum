@@ -1,24 +1,26 @@
 describe('Unit Test for Stories Controller', function () {
     beforeEach(angular.mock.module('scrum.storiesController'));
 
-    var scope, controller, storiesService, location,modalService;
+    var scope, controller, storiesService, location,modalService, localStorage;
     function initialize() {
         controller('StoriesController', {
             $scope: scope,
             StoriesService: storiesService,
             $location: location,
-            ModalService: modalService
+            ModalService: modalService,
+            LocalStorage: localStorage
         })
     }
     beforeEach(inject(function ($controller, $rootScope, $q) {
         scope = $rootScope.$new();
-        storiesService = jasmine.createSpyObj('StoriesService', ['retrieveSelectedTeam','addOrEditStoriesAssignedToTeam', 'getStoriesAssignedToTeams']);
+        storiesService = jasmine.createSpyObj('StoriesService', ['addOrEditStoriesAssignedToTeam', 'getStoriesAssignedToTeams']);
+        localStorage = jasmine.createSpyObj('LocalStorage', ['retrieveModel']);
         location = jasmine.createSpyObj('$location', ['path']);
         modalService = jasmine.createSpyObj('ModalService', ['showModal']);
 
         controller = $controller;
 
-        storiesService.retrieveSelectedTeam.and.returnValue({
+        localStorage.retrieveModel.and.returnValue({
             teamName: 'some team name',
             teamId: 1,
             stories: [
@@ -67,7 +69,7 @@ describe('Unit Test for Stories Controller', function () {
             initialize();
         });
         it('should retrieve selected team', function () {
-            expect(storiesService.retrieveSelectedTeam).toHaveBeenCalled()
+            expect(localStorage.retrieveModel).toHaveBeenCalled()
         });
 
         it('should get a team name', function () {
@@ -101,7 +103,7 @@ describe('Unit Test for Stories Controller', function () {
         });
 
         it('should call location.path when nothing is selected', function () {
-            storiesService.retrieveSelectedTeam.and.returnValue({});
+            localStorage.retrieveModel.and.returnValue({});
             initialize();
             expect(location.path).toHaveBeenCalledWith('/');
         });

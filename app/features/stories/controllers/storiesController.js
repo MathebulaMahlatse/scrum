@@ -1,11 +1,13 @@
 var module = angular.module('scrum.storiesController',
     [
         'scrum.storiesService',
-        'angularModalService'
+        'angularModalService',
+        'scrum.localStorage'
     ]);
 
-module.controller('StoriesController', ['$scope', '$location', 'StoriesService', 'ModalService', function ($scope, $location, StoriesService, ModalService) {
-    var selectedTeam = StoriesService.retrieveSelectedTeam();
+module.controller('StoriesController', ['$scope', '$location', 'StoriesService', 'ModalService', 'LocalStorage',
+        function ($scope, $location, StoriesService, ModalService, LocalStorage) {
+    var selectedTeam = LocalStorage.retrieveModel();
 
     if(selectedTeam && !selectedTeam.teamId > 0) {
         $location.path('/');
