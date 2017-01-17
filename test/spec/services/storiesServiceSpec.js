@@ -27,6 +27,14 @@ describe('Unit Test for StoriesService', function() {
                 teamId: 3,
                 stories: []
             }
+        ],
+        resources: [
+            {
+                name: "Test 1"
+            },
+            {
+                name: "Test 2"
+            }
         ]
     };
 
@@ -104,6 +112,12 @@ describe('Unit Test for StoriesService', function() {
                     status: 'status'
                 }
             });
+        });
+    });
+
+    describe('get resources', function() {
+        it('should return resources', function() {
+            expect(teamStoriesServices.getResources()).toEqual(['Test 1', 'Test 2'])
         });
     });
 });

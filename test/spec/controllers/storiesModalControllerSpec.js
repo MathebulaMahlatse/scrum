@@ -1,8 +1,9 @@
 describe('Unit Test for stories modal controller', function () {
     beforeEach(angular.mock.module('scrum.storiesModal'));
 
-    var scope, element, controller;
+    var scope, element, controller, teamStoriesServices;
 
+    var resources = ['Test 1', 'Test 2'];
     function initialize(story) {
         if(story !== undefined) {
             story = {
@@ -17,7 +18,8 @@ describe('Unit Test for stories modal controller', function () {
             $scope: scope,
             $element: element,
             title: story,
-            close: function (model, timeout) {}
+            close: function (model, timeout) {},
+            TeamStoriesServices: teamStoriesServices
         })
     }
 
@@ -25,6 +27,9 @@ describe('Unit Test for stories modal controller', function () {
         scope = $rootScope.$new();
         element = jasmine.createSpyObj('$element', ['modal']);
         controller = $controller;
+        teamStoriesServices = jasmine.createSpyObj('TeamStoriesServices', ['getResources']);
+
+        teamStoriesServices.getResources.and.returnValue(resources);
     }));
 
     describe('when initializing', function () {
@@ -51,7 +56,7 @@ describe('Unit Test for stories modal controller', function () {
         it('should set dropdown data', function () {
             expect(scope.statusOfTasks).toEqual(['backlog', 'todo', 'in progress', 'done']);
             expect(scope.estimationStages).toEqual(['small', 'medium', 'large']);
-            expect(scope.ownerOfStory).toEqual(['Mahlatse - Product Owner', 'Sharon - BA', 'William - The developer'])
+            expect(scope.ownerOfStory).toEqual(resources)
         });
     });
 
@@ -60,7 +65,7 @@ describe('Unit Test for stories modal controller', function () {
             initialize();
             expect(scope.status).toEqual('backlog');
             expect(scope.estimation).toEqual('small');
-            expect(scope.owner).toEqual('Mahlatse - Product Owner');
+            expect(scope.owner).toEqual(resources[0]);
         });
     });
 

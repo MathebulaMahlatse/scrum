@@ -1,6 +1,18 @@
 {
+  "resources": [
+    {
+      "name": "William - Product Owner"
+    },
+    {
+      "name": "Sharon - BA"
+    },
+    {
+      "name": "Mahlatse - BA"
+    }
+  ],
   "teams": [
     {
+      "productOwner": "",
       "teamId": 1,
       "teamName": "Payments",
       "stories": [

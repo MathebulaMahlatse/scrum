@@ -1,8 +1,11 @@
-var app = angular.module('scrum.storiesModal', []);
+var app = angular.module('scrum.storiesModal',
+    [
+        'scrum.teamStoriesServices'
+    ]);
 
 app.controller('StoriesModalController', [
-    '$scope', '$element', 'title', 'close',
-    function($scope, $element, title, close) {
+    '$scope', '$element', 'title', 'close', 'TeamStoriesServices',
+    function($scope, $element, title, close, TeamStoriesServices) {
         $scope.description = title && title.description;
         $scope.estimation = title && title.estimation;
         $scope.owner = title && title.owner;
@@ -27,11 +30,6 @@ app.controller('StoriesModalController', [
         };
 
         function initializeData() {
-            if(_.isUndefined(title)) {
-                $scope.status = 'backlog';
-                $scope.estimation = 'small';
-                $scope.owner = 'Mahlatse - Product Owner'
-            }
 
             $scope.statusOfTasks = [
                 'backlog',
@@ -46,11 +44,13 @@ app.controller('StoriesModalController', [
                 'large'
             ];
 
-            $scope.ownerOfStory = [
-                'Mahlatse - Product Owner',
-                'Sharon - BA',
-                'William - The developer'
-            ];
+            $scope.ownerOfStory = TeamStoriesServices.getResources();
+
+            if(_.isUndefined(title)) {
+                $scope.status = $scope.statusOfTasks[0];
+                $scope.estimation = $scope.estimationStages[0];
+                $scope.owner = $scope.ownerOfStory[0];
+            }
         }
 
         function hideModal() {

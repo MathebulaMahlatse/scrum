@@ -73,6 +73,15 @@ module.factory('TeamStoriesServices', ['$http', '$q', function ($http, $q) {
                 teamName: team.teamName,
                 stories: team.stories
             });
+        },
+
+        getResources: function() {
+           var teamResources = [];
+           _.forEach(_cachedScrumData.resources, function(resource) {
+              teamResources.push(resource.name);
+           });
+
+           return teamResources;
         }
     };
 }]);
