@@ -1,6 +1,6 @@
-var module = angular.module('scrum.storiesService', []);
+var module = angular.module('scrum.teamStoriesServices', []);
 
-module.factory('StoriesService', ['$http', '$q', function ($http, $q) {
+module.factory('TeamStoriesServices', ['$http', '$q', function ($http, $q) {
     var _team = {};
     var _cachedScrumData = undefined;
 

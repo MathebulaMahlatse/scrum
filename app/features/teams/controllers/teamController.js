@@ -1,11 +1,13 @@
 var module = angular.module('scrum.teamController',
     [
         'angularModalService',
-        'scrum.localStorage'
+        'scrum.localStorage',
+        'scrum.teamStoriesServices',
+        'scrum.teamModal'
     ]);
 
-module.controller('TeamController',['$scope', 'StoriesService', '$location', 'ModalService', 'LocalStorage' ,
-    function ($scope, StoriesService, $location, ModalService, LocalStorage) {
+module.controller('TeamController',['$scope', 'TeamStoriesServices', '$location', 'ModalService', 'LocalStorage' ,
+    function ($scope, TeamStoriesServices, $location, ModalService, LocalStorage) {
     refreshModel();
 
     $scope.selectTeam = function (team) {
@@ -24,7 +26,7 @@ module.controller('TeamController',['$scope', 'StoriesService', '$location', 'Mo
             modal.element.modal();
             modal.close.then(function(result) {
                 if(!_.isUndefined(result)) {
-                    StoriesService.storeTeam({
+                    TeamStoriesServices.storeTeam({
                         teamName: result.teamName,
                         stories: []
                     });
@@ -49,7 +51,7 @@ module.controller('TeamController',['$scope', 'StoriesService', '$location', 'Mo
     }
 
     function refreshModel() {
-        StoriesService.getStoriesAssignedToTeams().then(function (response) {
+        TeamStoriesServices.getStoriesAssignedToTeams().then(function (response) {
             $scope.teamsAndStoriesOverview = filterStoriesBasedOnAStatus(response.teams);
         });
     }

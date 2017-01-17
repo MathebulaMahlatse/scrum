@@ -1,11 +1,11 @@
 describe('Unit Test for Stories Controller', function () {
     beforeEach(angular.mock.module('scrum.storiesController'));
 
-    var scope, controller, storiesService, location,modalService, localStorage;
+    var scope, controller, teamStoriesServices, location,modalService, localStorage;
     function initialize() {
         controller('StoriesController', {
             $scope: scope,
-            StoriesService: storiesService,
+            TeamStoriesServices: teamStoriesServices,
             $location: location,
             ModalService: modalService,
             LocalStorage: localStorage
@@ -13,7 +13,7 @@ describe('Unit Test for Stories Controller', function () {
     }
     beforeEach(inject(function ($controller, $rootScope, $q) {
         scope = $rootScope.$new();
-        storiesService = jasmine.createSpyObj('StoriesService', ['addOrEditStoriesAssignedToTeam', 'getStoriesAssignedToTeams']);
+        teamStoriesServices = jasmine.createSpyObj('TeamStoriesServices', ['addOrEditStoriesAssignedToTeam', 'getStoriesAssignedToTeams']);
         localStorage = jasmine.createSpyObj('LocalStorage', ['retrieveModel']);
         location = jasmine.createSpyObj('$location', ['path']);
         modalService = jasmine.createSpyObj('ModalService', ['showModal']);
@@ -44,7 +44,7 @@ describe('Unit Test for Stories Controller', function () {
             })
         }));
 
-        storiesService.getStoriesAssignedToTeams.and.returnValue($q.when({
+        teamStoriesServices.getStoriesAssignedToTeams.and.returnValue($q.when({
             teams: [
                 {
                     teamName: 'team name',
@@ -123,7 +123,7 @@ describe('Unit Test for Stories Controller', function () {
                 }
             });
 
-            expect(storiesService.addOrEditStoriesAssignedToTeam).toHaveBeenCalledWith({
+            expect(teamStoriesServices.addOrEditStoriesAssignedToTeam).toHaveBeenCalledWith({
                 teamId: 1,
                 story: {
                     storyId: 1,
@@ -134,7 +134,7 @@ describe('Unit Test for Stories Controller', function () {
                 }
             });
 
-            expect(storiesService.getStoriesAssignedToTeams).toHaveBeenCalled();
+            expect(teamStoriesServices.getStoriesAssignedToTeams).toHaveBeenCalled();
         });
     });
 });

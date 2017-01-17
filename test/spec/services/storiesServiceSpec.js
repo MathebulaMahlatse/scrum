@@ -1,7 +1,7 @@
 describe('Unit Test for StoriesService', function() {
-    beforeEach(angular.mock.module('scrum.storiesService'));
+    beforeEach(angular.mock.module('scrum.teamStoriesServices'));
 
-    var storiesService, httpBackEnd, actual;
+    var teamStoriesServices, httpBackEnd, actual;
 
     var mockTeamData = {
         teams: [
@@ -35,13 +35,13 @@ describe('Unit Test for StoriesService', function() {
         stories: []
     };
 
-    beforeEach(inject(function($httpBackend, StoriesService) {
+    beforeEach(inject(function($httpBackend, TeamStoriesServices) {
         httpBackEnd = $httpBackend;
-        storiesService = StoriesService;
+        teamStoriesServices = TeamStoriesServices;
 
         httpBackEnd.expectGET('/mock/scrumData.json').respond(200, mockTeamData);
 
-        storiesService.getStoriesAssignedToTeams().then(function (result) {
+        teamStoriesServices.getStoriesAssignedToTeams().then(function (result) {
             actual = result;
         });
         httpBackEnd.flush();
@@ -51,7 +51,7 @@ describe('Unit Test for StoriesService', function() {
 
     describe('getStoriesAssignedToTeams', function () {
         it('get stories assigned to team', function () {
-            storiesService.getStoriesAssignedToTeams().then(function (team) {
+            teamStoriesServices.getStoriesAssignedToTeams().then(function (team) {
                 expect(team).toEqual(mockTeamData);
             });
 
@@ -60,7 +60,7 @@ describe('Unit Test for StoriesService', function() {
 
     describe('when storing a team', function () {
         it('should store a team', function () {
-            storiesService.storeTeam({
+            teamStoriesServices.storeTeam({
                 teamName: 'name of the team'
             });
         });
@@ -68,7 +68,7 @@ describe('Unit Test for StoriesService', function() {
 
     describe('when adding Or edit Stories Assigned To Team', function () {
         it('should add a story to existing team', function () {
-            storiesService.addOrEditStoriesAssignedToTeam({
+            teamStoriesServices.addOrEditStoriesAssignedToTeam({
                 teamId: 1,
                 story: {
                     description: 'description',
@@ -80,7 +80,7 @@ describe('Unit Test for StoriesService', function() {
         });
 
         it('should edit a story to existing team', function () {
-            storiesService.addOrEditStoriesAssignedToTeam({
+            teamStoriesServices.addOrEditStoriesAssignedToTeam({
                 teamId: 1,
                 story: {
                     storyId: 1,
@@ -95,7 +95,7 @@ describe('Unit Test for StoriesService', function() {
 
     describe('when adding a story to a team with no existing stories', function () {
         it('should a story', function () {
-            storiesService.addOrEditStoriesAssignedToTeam({
+            teamStoriesServices.addOrEditStoriesAssignedToTeam({
                 teamId: 3,
                 story: {
                     description: 'description',

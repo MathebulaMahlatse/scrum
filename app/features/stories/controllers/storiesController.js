@@ -1,12 +1,13 @@
 var module = angular.module('scrum.storiesController',
     [
-        'scrum.storiesService',
+        'scrum.teamStoriesServices',
         'angularModalService',
-        'scrum.localStorage'
+        'scrum.localStorage',
+        'scrum.storiesModal'
     ]);
 
-module.controller('StoriesController', ['$scope', '$location', 'StoriesService', 'ModalService', 'LocalStorage',
-        function ($scope, $location, StoriesService, ModalService, LocalStorage) {
+module.controller('StoriesController', ['$scope', '$location', 'TeamStoriesServices', 'ModalService', 'LocalStorage',
+        function ($scope, $location, TeamStoriesServices, ModalService, LocalStorage) {
     var selectedTeam = LocalStorage.retrieveModel();
 
     if(selectedTeam && !selectedTeam.teamId > 0) {
@@ -37,7 +38,7 @@ module.controller('StoriesController', ['$scope', '$location', 'StoriesService',
                         }
                     };
 
-                    StoriesService.addOrEditStoriesAssignedToTeam(updatedStory);
+                    TeamStoriesServices.addOrEditStoriesAssignedToTeam(updatedStory);
                     refreshModelAfterAddOrEditOperation();
                 }
             });
@@ -81,7 +82,7 @@ module.controller('StoriesController', ['$scope', '$location', 'StoriesService',
     }
 
     function refreshModelAfterAddOrEditOperation() {
-        StoriesService.getStoriesAssignedToTeams().then(function (response) {
+        TeamStoriesServices.getStoriesAssignedToTeams().then(function (response) {
             _.forEach(response.teams, function (team) {
                 if(team.teamId === selectedTeam.teamId) {
                     refreshViewModel(filterSelectedTeamForStories(team.stories));

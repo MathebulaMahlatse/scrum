@@ -9,10 +9,7 @@ angular
       'ngSanitize',
       'ngTouch',
       'scrum.teamController',
-      'scrum.storiesService',
-      'scrum.storiesController',
-      'scrum.teamModal',
-      'scrum.storiesModal'
+      'scrum.storiesController'
   ])
   .config(function ($routeProvider, $locationProvider) {
         $routeProvider

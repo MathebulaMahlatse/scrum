@@ -2,16 +2,16 @@
 describe('Unit Test for team controller', function () {
     beforeEach(angular.mock.module('scrum.teamController'));
 
-    var scope, storiesService, location, modalService, localStorage;
+    var scope, teamStoriesServices, location, modalService, localStorage;
     beforeEach(inject(function ($controller, $rootScope, $q) {
         scope = $rootScope.$new();
-        storiesService = jasmine.createSpyObj('StoriesService', ['getStoriesAssignedToTeams', 'storeTeam']);
+        teamStoriesServices = jasmine.createSpyObj('TeamStoriesServices', ['getStoriesAssignedToTeams', 'storeTeam']);
         localStorage = jasmine.createSpyObj('LocalStorage', ['addModel']);
 
         location = jasmine.createSpyObj('$location', ['path']);
         modalService = jasmine.createSpyObj('ModalService', ['showModal']);
 
-        storiesService.getStoriesAssignedToTeams.and.returnValue($q.when({
+        teamStoriesServices.getStoriesAssignedToTeams.and.returnValue($q.when({
             teams: [
                 {
                     teamName: 'team 1',
@@ -37,7 +37,7 @@ describe('Unit Test for team controller', function () {
 
         $controller('TeamController', {
             $scope: scope,
-            StoriesService: storiesService,
+            TeamStoriesServices: teamStoriesServices,
             $location: location,
             ModalService: modalService,
             LocalStorage: localStorage
@@ -48,7 +48,7 @@ describe('Unit Test for team controller', function () {
 
     describe('when initialization', function () {
         it('should have called get stories assigned to teams', function () {
-            expect(storiesService.getStoriesAssignedToTeams).toHaveBeenCalled();
+            expect(teamStoriesServices.getStoriesAssignedToTeams).toHaveBeenCalled();
         });
 
         it('should set teams and stories to model on the scope', function () {
@@ -96,7 +96,7 @@ describe('Unit Test for team controller', function () {
                 }
             });
 
-            expect(storiesService.storeTeam).toHaveBeenCalledWith({
+            expect(teamStoriesServices.storeTeam).toHaveBeenCalledWith({
                 teamName: 'team name',
                 stories: []
             });
