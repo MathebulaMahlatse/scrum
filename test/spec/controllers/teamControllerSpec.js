@@ -92,7 +92,7 @@ describe('Unit Test for team controller', function () {
                 templateUrl: "features/teams/views/teamModal.html",
                 controller: "TeamModalController",
                 inputs: {
-                    title: "Adding a team"
+                    title: "Adding team"
                 }
             });
 
