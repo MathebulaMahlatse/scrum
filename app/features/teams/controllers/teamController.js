@@ -20,7 +20,7 @@ module.controller('TeamController',['$scope', 'TeamStoriesServices', '$location'
             templateUrl: "features/teams/views/teamModal.html",
             controller: "TeamModalController",
             inputs: {
-                title: "Adding a team"
+                title: "Adding team"
             }
         }).then(function(modal) {
             modal.element.modal();

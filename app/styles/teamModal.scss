@@ -6,8 +6,20 @@
       .panel-body {
         padding: 15px 15px 0  15px;
         .form-group {
-          .col-sm-10 {
+          label {
+            color: #777;
+            font-size: 95%;
+          }
+          .input-message {
             padding-left: 0;
+            .error {
+              color: red;
+            }
+            input {
+              &.show-validation-styles {
+                border: 1px solid #FF2A4C;
+              }
+            }
           }
 
           .selector {

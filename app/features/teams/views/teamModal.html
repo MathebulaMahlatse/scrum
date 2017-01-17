@@ -8,16 +8,25 @@
                 </div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" name="userForm" ng-submit="submitForm()" novalidate role="form">
+                    <form class="form-horizontal" name="teamForm" ng-submit="submitForm()" novalidate role="form">
                         <div class="form-group">
                             <label for="name" class="col-sm-2 control-label">Name</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="name" placeholder="Name of the team" ng-model="name" required>
+                            <div class="col-sm-10 input-message">
+                                <input name="nameOfTheTeam"
+                                       type="text"
+                                       class="form-control"
+                                       id="name"
+                                       ng-class="{'show-validation-styles': teamForm.nameOfTheTeam.$invalid }"
+                                       placeholder="Name of the team"
+                                       ng-model="name" required>
+                                <div ng-messages="teamForm.nameOfTheTeam.$error" role="alert" ng-show="teamForm.nameOfTheTeam.$invalid" class="error">
+                                    <div ng-message="required">Please enter a value for this field.</div>
+                                </div>
                             </div>
                         </div>
 
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary"  ng-disabled="userForm.$invalid">OK</button>
+                            <button type="submit" class="btn btn-primary"  ng-disabled="teamForm.$invalid">OK</button>
                             <button type="button" ng-click="cancel()" class="btn">Cancel</button>
                         </div>
                     </form>

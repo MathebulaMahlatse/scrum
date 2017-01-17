@@ -34,6 +34,7 @@ module.exports = function(config) {
       'bower_components/lodash/lodash.js',
       'bower_components/angular-modal-service/dst/angular-modal-service.js',
       'bower_components/angular-aria/angular-aria.js',
+      'bower_components/angular-messages/angular-messages.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/features/**/*.js",
